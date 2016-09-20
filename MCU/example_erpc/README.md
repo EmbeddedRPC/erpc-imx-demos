@@ -1,4 +1,4 @@
- ### The build directory contains the .bin file, for your MCU core.
+### The build directory contains the .bin file, for your MCU core.
 # Please follow these instructions to make the on-chip Cortex-M4 run your binary from /build directory:
 
 ## TFTP Server Install and Setup:
@@ -27,12 +27,12 @@ sudo mkdir /tftpboot
 sudo chmod -R 777 /tftpboot
 sudo chown -R nobody /tftpboot
 ```
-- Restart the xinetd service.
- ###### newer systems:
+- Restart the xinetd service.  
+**newer systems:**
 ```
 sudo service xinetd restart
-```
- ###### older systems:
+```  
+**older systems:**
 ```
 sudo /etc/init.d/xinetd restart
 ```
