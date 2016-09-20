@@ -1,0 +1,1 @@
+This file contains an application, which exports an RPMsg endpoint using RPMsg Multiept kernel module. The export and settings of the destination endpoint address is done via sysfs. The character device used for actual communication is exported using udev. You can either run this file or import it as a library.
