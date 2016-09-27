@@ -1,2 +1,2 @@
 - run clone_setup_yocto.sh to clone Yocto Linux, patch it and build it for i.MX6 SDB board
-- use rpmsg_sysfs_interface.patch to patch your own version of Linux, if you want to use RPMsg Multiendpoint kernel module.
+- use /middleware/rpmsg-sysfs/rpmsg_sysfs_interface.patch to patch your own version of Linux, if you want to use RPMsg Multiendpoint kernel module.

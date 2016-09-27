@@ -1,3 +1,6 @@
 [submodule "middleware/rpmsg-lite"]
 	path = middleware/rpmsg-lite
 	url = https://github.com/NXPmicro/rpmsg-lite.git
+[submodule "middleware/rpmsg-sysfs"]
+	path = middleware/rpmsg-sysfs
+	url = https://github.com/NXPmicro/rpmsg-sysfs.git
