@@ -44,7 +44,7 @@
 
 #define RL_USE_STATIC_API                    (0)
 
-#define RL_ASSERT(x)  do{if(!x)while(1);}while(0);
+#define RL_ASSERT(x)  do{if(!(x))while(1);}while(0);
 /* } END */
 
  #endif /* _RPMSG_CONFIG_H */

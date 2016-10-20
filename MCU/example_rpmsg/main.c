@@ -76,7 +76,11 @@ void test(void *unused)
     ctrl_q = rpmsg_queue_create(my_rpmsg);
     ctrl_ept = rpmsg_lite_create_ept(my_rpmsg, TC_LOCAL_EPT_ADDR, rpmsg_queue_rx_cb, ctrl_q);
     PRINTF("Waiting for master to get ready...\r\n");
-    while(!rpmsg_lite_is_link_up(my_rpmsg));
+    while(!rpmsg_lite_is_link_up(my_rpmsg))
+    {
+       PRINTF(".");
+       vTaskDelay(300);
+    }
     PRINTF("Sending name service announcement to Linux...\r\n");
     rpmsg_ns_announce(my_rpmsg, ctrl_ept, "rpmsg-openamp-demo-channel", RL_NS_CREATE);
     PRINTF("Waiting for any messages from Linux...\r\n");

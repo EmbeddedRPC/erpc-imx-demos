@@ -128,6 +128,9 @@
 /* GPC information for this board*/
 #define BOARD_GPC_BASEADDR                    GPC
 
+/* Shared memory base address */
+#define BOARD_SHARED_MEMORY_BASE  ((void*)0xBFFF0000)
+
 #if defined(__cplusplus)
 extern "C" {
 #endif /* __cplusplus */
