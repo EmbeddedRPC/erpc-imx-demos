@@ -18,3 +18,13 @@ to use RPMsg as a transport layer for embedded remote procedure call (eRPC) libr
      - **RPMsg Python** - Python wrapper for rpmsg_multiept.ko
      - **eRPC** - Embedded RPC library
 
+# Supported Boards:
+ - i.MX6SX Sabre SD
+ - i.MX7D Sabre SD
+ - LPCXpresso5411x  
+   
+   
+<img src="http://cache.nxp.com/files/graphic/block_diagram/RDIMX6SABREBRD_BD2.jpg" width="200">
+<img src="http://cache.nxp.com/files/graphic/block_diagram/MCIMX7X-SDB-BD.jpg" width="200">
+<img src="http://cache.nxp.com/documents/marcom_graphics/OM13089_image.png" width="200">
+
