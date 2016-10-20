@@ -4,3 +4,6 @@
 [submodule "middleware/rpmsg-sysfs"]
 	path = middleware/rpmsg-sysfs
 	url = https://github.com/NXPmicro/rpmsg-sysfs.git
+[submodule "middleware/erpc"]
+	path = middleware/erpc
+	url = https://github.com/MarekNovakNXP/erpc.git
