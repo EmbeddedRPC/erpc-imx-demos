@@ -42,7 +42,7 @@
 #define TC_LOCAL_EPT_ADDR (30)
 #define TC_REMOTE_EPT_ADDR (40)
 
-void* rpmsg_lite_base = BOARD_SHARED_MEMORY_BASE;
+void* rpmsg_lite_base = (void*)0x908000; //BOARD_SHARED_MEMORY_BASE;
 
 struct rpmsg_lite_endpoint *ctrl_ept;
 rpmsg_queue_handle ctrl_q;
@@ -69,29 +69,30 @@ void test(void *unused)
     int len;
 
     hardware_init();
-    PRINTF("Hardware initialized\r\n");
+    //PRINTF("Hardware initialized\r\n");
 
     env_init();
     my_rpmsg = rpmsg_lite_remote_init(rpmsg_lite_base, RL_PLATFORM_IMX6SX_M4_LINK_ID, RL_NO_FLAGS);
     ctrl_q = rpmsg_queue_create(my_rpmsg);
     ctrl_ept = rpmsg_lite_create_ept(my_rpmsg, TC_LOCAL_EPT_ADDR, rpmsg_queue_rx_cb, ctrl_q);
-    PRINTF("Waiting for master to get ready...\r\n");
+    //PRINTF("Waiting for master to get ready...\r\n");
     while(!rpmsg_lite_is_link_up(my_rpmsg))
     {
-       PRINTF(".");
+       //PRINTF(".");
        vTaskDelay(300);
     }
-    PRINTF("Sending name service announcement to Linux...\r\n");
+    //PRINTF("Sending name service announcement to Linux...\r\n");
     rpmsg_ns_announce(my_rpmsg, ctrl_ept, "rpmsg-openamp-demo-channel", RL_NS_CREATE);
-    PRINTF("Waiting for any messages from Linux...\r\n");
+    //PRINTF("Waiting for any messages from Linux...\r\n");
     while(1)
     {
     	rpmsg_queue_recv(my_rpmsg, ctrl_q, &src, (char*)buf, 256, &recved, RL_BLOCK);
-    	PRINTF("\n\n\rFrom endpoint %d received %d bytes:\n\r", (int)src, recved);
-    	PRINTF(buf);
-    	len = sprintf(buf, "Oh you don't say number %d!", (int)src);
-    	PRINTF("\n\n\rSending %d bytes to endpoint %d:\n\r ", len, src);
-    	PRINTF(buf);
+    	//PRINTF("\n\n\rFrom endpoint %d received %d bytes:\n\r", (int)src, recved);
+    	//PRINTF(buf);
+    	//len = sprintf(buf, "Oh you don't say number %d!", (int)src);
+    	//PRINTF("\n\n\rSending %d bytes to endpoint %d:\n\r ", len, src);
+    	//PRINTF(buf);
+        len = recved;
     	rpmsg_lite_send(my_rpmsg, ctrl_ept, src, buf, len, RL_BLOCK);
     }
 

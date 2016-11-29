@@ -40,7 +40,7 @@ void hardware_init(void)
     BOARD_ClockInit();
 
     /* initialize debug uart */
-    dbg_uart_init();
+    //dbg_uart_init();
 
     /* RDC MU*/
    RDC_SetPdapAccess(RDC, BOARD_MU_RDC_PDAP, 3 << (BOARD_DOMAIN_ID * 2), false, false);

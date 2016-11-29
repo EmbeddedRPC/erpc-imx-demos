@@ -154,7 +154,7 @@
 #define BOARD_FLEXCAN_HANDLER                 FLEXCAN1_Handler
 
 /* Shared memory base address */
-#define BOARD_SHARED_MEMORY_BASE  ((void*)0xBFFF0000)
+#define BOARD_SHARED_MEMORY_BASE  ((void*)0x87FF0000)
 
 #if defined(__cplusplus)
 extern "C" {
