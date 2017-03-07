@@ -28,3 +28,10 @@ to use RPMsg as a transport layer for embedded remote procedure call (eRPC) libr
 <img src="http://cache.nxp.com/files/graphic/block_diagram/MCIMX7X-SDB-BD.jpg" width="200">
 <img src="http://cache.nxp.com/documents/marcom_graphics/OM13089_image.png" width="200">
 
+## Related Links:
+- [eRPC, Embedded Remote Procedure Call library](https://github.com/EmbeddedRPC/erpc)
+- [Embedded Linux Crash Course targetting UDOO Neo with i.MX6SX](https://gitlab.com/OK2NMZ/embedded-linux-crash-course)
+- [RPMsg-Lite, RPMsg for microcontrollers with small footprint](https://github.com/NXPmicro/rpmsg-lite)
+- [Definition of RPMsg protocol](https://github.com/OpenAMP/open-amp/wiki/RPMsg-Messaging-Protocol)
+
+
