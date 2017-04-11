@@ -50,8 +50,8 @@ setenv mmcargs "no_console_suspend clk_ignore_unused uart_from_osc console=${con
 setenv fdt_file "imx6sx-sdb-m4.dtb"
 setenv ipaddr "192.168.0.50"
 setenv serverip "192.168.0.100"
-setenv loaddemo "tftpboot 0x007f8000 example.bin;bootaux 0x007f8000"
-setenv loadocram "tftpboot 0x00901000 example.bin;bootaux 0x00901000"
+setenv loaddemo "tftpboot 0x007f8000 example.bin;dcache flush;bootaux 0x007f8000"
+setenv loadocram "tftpboot 0x00901000 example.bin;dcache flush;bootaux 0x00901000"
 ```
 - Set your PC's ethernet interface IP address to 192.168.0.100, mask 255.255.255.0.
 - Type ```run loadocram```, the M4 core firmware should be downloaded via tftp and its firmware should boot-up. If you have opened /dev/ttyUSB1 with baudrate of 115200 Baud, then you should see a new printout.
