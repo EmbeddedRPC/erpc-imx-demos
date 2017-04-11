@@ -17,8 +17,8 @@ setenv mmcargs "no_console_suspend clk_ignore_unused uart_from_osc console=${con
 setenv fdt_file "imx6sx-sdb-m4.dtb"
 setenv ipaddr "192.168.0.50"
 setenv serverip "192.168.0.100"
-setenv loaddemo "tftpboot 0x007f8000 example.bin;bootaux 0x007f8000"
-setenv loadocram "tftpboot 0x00901000 example.bin;bootaux 0x00901000"
+setenv loaddemo "tftpboot 0x007f8000 example.bin;dcache flush;bootaux 0x007f8000"
+setenv loadocram "tftpboot 0x00901000 example.bin;dcache flush;bootaux 0x00901000"
 saveenv
 ```
 8. Set your PC's ethernet interface IP address to 192.168.0.100, mask 255.255.255.0.
@@ -54,8 +54,8 @@ setenv mmcargs "no_console_suspend clk_ignore_unused uart_from_osc console=${con
 setenv fdt_file "imx7d-sdb-m4.dtb"
 setenv ipaddr "192.168.0.50"
 setenv serverip "192.168.0.100"
-setenv loaddemo "tftpboot 0x007f8000 example.bin;bootaux 0x007f8000"
-setenv loadocram "tftpboot 0x00910000 example.bin;bootaux 0x00910000"
+setenv loaddemo "tftpboot 0x007f8000 example.bin;dcache flush;bootaux 0x007f8000"
+setenv loadocram "tftpboot 0x00910000 example.bin;dcache flush;bootaux 0x00910000"
 setenv bootcmd "run loadocram;mmc dev ${mmcdev};mmc dev ${mmcdev}; if mmc rescan; then if run loadbootscript; then run bootscript; else if run loadimage; then run mmcboot; else run netboot; fi; fi; else run netboot; fi"
 saveenv
 ```
