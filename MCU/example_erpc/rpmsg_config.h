@@ -38,13 +38,13 @@
 
 #define RL_BUFFER_COUNT                       (256)
 
-#define RL_BUFFER_SIZE                            (512)
+#define RL_BUFFER_PAYLOAD_SIZE      (512)
 
 #define RL_API_HAS_ZEROCOPY              (1)
 
 #define RL_USE_STATIC_API                    (0)
 
-#define RL_ASSERT(x)  do{if(!x)while(1);}while(0);
+#define RL_ASSERT(x)  do{if(!(x))while(1);}while(0);
 /* } END */
 
  #endif /* _RPMSG_CONFIG_H */

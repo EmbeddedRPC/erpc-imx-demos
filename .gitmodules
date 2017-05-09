@@ -6,4 +6,4 @@
 	url = https://github.com/NXPmicro/rpmsg-sysfs.git
 [submodule "middleware/erpc"]
 	path = middleware/erpc
-	url = https://github.com/MarekNovakNXP/erpc.git
+	url = https://github.com/EmbeddedRPC/erpc.git

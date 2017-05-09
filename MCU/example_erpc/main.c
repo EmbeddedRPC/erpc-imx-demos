@@ -26,6 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 #include "FreeRTOS.h"
+#include "erpc_mbf_setup.h"
 #include "erpc_server_setup.h"
 #include "erpc_matrix_multiply_server.h"
 #include "erpc_matrix_multiply.h"
@@ -103,11 +104,13 @@ void app_task(void *param)
     hardware_init();
     PRINTF("Hardware initialized\r\n");
 
-    /* eRPC server side initialization */
-    erpc_server_init(
-        erpc_transport_rpmsg_lite_rtos_remote_init(
+    erpc_transport_t transport = erpc_transport_rpmsg_lite_rtos_remote_init(
             30, 1024, BOARD_SHARED_MEMORY_BASE,
-             0, NULL, true));
+             0, NULL);
+    erpc_mbf_t message_buffer_factory = erpc_mbf_rpmsg_zc_init(transport);
+
+    /* eRPC server side initialization */
+    erpc_server_init(transport, message_buffer_factory);
 
    PRINTF("eRPC intialized\r\n");
 
