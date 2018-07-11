@@ -38,7 +38,7 @@
 
 #define RL_BUFFER_COUNT                       (256)
 
-#define RL_BUFFER_PAYLOAD_SIZE      (512)
+#define RL_BUFFER_PAYLOAD_SIZE      (496)
 
 #define RL_API_HAS_ZEROCOPY              (1)
 

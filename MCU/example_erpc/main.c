@@ -69,7 +69,7 @@ void BOARD_MU_HANDLER (void)
  * @param matrix2 Second matrix
  * @param result_matrix Result matrix
  */
-void erpcMatrixMultiply(const Matrix *matrix1, const Matrix *matrix2, Matrix *result_matrix)
+void erpcMatrixMultiply(Matrix matrix1, Matrix matrix2, Matrix result_matrix)
 {
     int32_t i, j, k;
 
@@ -80,7 +80,7 @@ void erpcMatrixMultiply(const Matrix *matrix1, const Matrix *matrix2, Matrix *re
     {
         for (j = 0; j < matrix_size; ++j)
         {
-            (*result_matrix)[i][j] = 0;
+            result_matrix[i][j] = 0;
         }
     }
 
@@ -91,7 +91,7 @@ void erpcMatrixMultiply(const Matrix *matrix1, const Matrix *matrix2, Matrix *re
         {
             for (k = 0; k < matrix_size; ++k)
             {
-                (*result_matrix)[i][j] += (*matrix1)[i][k] * (*matrix2)[k][j];
+                result_matrix[i][j] += matrix1[i][k] * matrix2[k][j];
             }
         }
     }
@@ -106,8 +106,8 @@ void app_task(void *param)
 
     erpc_transport_t transport = erpc_transport_rpmsg_lite_rtos_remote_init(
             30, 1024, BOARD_SHARED_MEMORY_BASE,
-             0, NULL);
-    erpc_mbf_t message_buffer_factory = erpc_mbf_rpmsg_zc_init(transport);
+             0, NULL, "rpmsg-openamp-demo-channel");
+    erpc_mbf_t message_buffer_factory = erpc_mbf_rpmsg_init(transport);
 
     /* eRPC server side initialization */
     erpc_server_init(transport, message_buffer_factory);
